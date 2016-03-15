@@ -6,9 +6,7 @@ class DependencyParser
   private
 
   def parse_line(line)
-    if match = line.match(GEM_PARSER)
-      parse_gem(match)
-    end
+    (match = line.match(GEM_PARSER)) ? parse_gem(match) : nil
   end
 
   def parse_gem(gem_str)

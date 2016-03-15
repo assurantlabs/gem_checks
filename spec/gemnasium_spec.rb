@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'gemnasium'
+require 'gemnasium_validator'
 
-RSpec.describe Gemnasium do
+RSpec.describe GemnasiumValidator do
   describe '#evaluate' do
     context 'with no vulnerabilities in the lockfile' do
       let(:lockfile) { open_safe_file }
