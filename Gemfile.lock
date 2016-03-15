@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    gemnasium_validator (0.0.0)
+      nokogiri
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -5,6 +11,7 @@ GEM
     mini_portile2 (2.0.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    rake (11.1.1)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -23,7 +30,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  nokogiri
+  gemnasium_validator!
+  rake
   rspec
 
 BUNDLED WITH
