@@ -1,5 +1,5 @@
-require 'gemnasium_validator/dependency_parser'
-require 'gemnasium_validator/vulnerable_version_check'
+require 'gem_checks/dependency_parser'
+require 'gem_checks/vulnerable_version_check'
 
 class GemnasiumValidator
   def initialize(dependency_parser=DependencyParser.new,

@@ -1,4 +1,4 @@
-require 'gemnasium_validator/gemnasium_client'
+require 'gem_checks/gemnasium_client'
 
 class VulnerableVersionCheck
   def initialize(gemnasium_client=GemnasiumClient.new)

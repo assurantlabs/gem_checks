@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'gemnasium_validator/dependency_parser'
+require 'gem_checks/dependency_parser'
 
 RSpec.describe DependencyParser do
   describe '#parse' do

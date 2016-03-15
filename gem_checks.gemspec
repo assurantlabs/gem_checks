@@ -1,8 +1,8 @@
 $:.unshift File.expand_path('../lib', __FILE__)
-require 'gemnasium_validator/version'
+require 'gem_checks/version'
 
 Gem::Specification.new do |gem|
-  gem.name        = 'gemnasium_validator'
+  gem.name        = 'gem_checks'
   gem.version     = Version::VERSION
   gem.author      = 'Jacob Chae'
   gem.email       = 'jacob.chae@mobiledefense.com'

@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'gemnasium_validator/vulnerable_version_check'
+require 'gem_checks/vulnerable_version_check'
 
 RSpec.describe VulnerableVersionCheck do
   describe '#call' do

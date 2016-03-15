@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    gemnasium_validator (0.0.0)
-      nokogiri
+    gem_checks (0.0.1)
+      nokogiri (~> 1.6.7, >= 1.6.7.2)
 
 GEM
   remote: https://rubygems.org/
@@ -30,9 +30,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gemnasium_validator!
-  rake
-  rspec
+  gem_checks!
+  rake (~> 11.1, >= 11.1.0)
+  rspec (~> 3.4, >= 3.4.0)
 
 BUNDLED WITH
    1.11.2

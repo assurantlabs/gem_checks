@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.expand_path('../../lib', __FILE__)
+require 'gem_checks'
+require 'optparse'
+
+ARGV.push('-h') if ARGV.empty?
+
+OptionParser.new do |opts|
+  opts.banner = 'Usage: gem_checks /path/to/Gemfile.lock [options]'
+
+  opts.on('-h', '--help', 'Prints this help') do
+    puts opts
+    exit
+  end
+end.parse!
+
+file_path = ARGV.first
+lockfile = File.new(file_path)
+p GemnasiumValidator.new.evaluate(lockfile)

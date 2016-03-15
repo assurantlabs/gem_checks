@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'gemnasium_validator'
+require 'gem_checks'
 
 RSpec.describe GemnasiumValidator do
   describe '#evaluate' do

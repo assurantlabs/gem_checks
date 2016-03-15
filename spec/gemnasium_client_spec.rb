@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'gemnasium_validator/gemnasium_client'
+require 'gem_checks/gemnasium_client'
 
 RSpec.describe GemnasiumClient do
   describe '#vulnerable?', speed: 'slow' do
