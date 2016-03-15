@@ -15,7 +15,7 @@ RSpec.describe VulnerableVersionCheck do
       let(:deps) { vulnerable_parsed_results }
 
       before do
-        allow_any_instance_of(GemnasiumClient).to receive(:check) do |obj, arg|
+        allow_any_instance_of(GemnasiumClient).to receive(:vulnerable?) do |obj, arg|
           arg == vulnerable_gem ? true : false
         end
       end

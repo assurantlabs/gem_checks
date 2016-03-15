@@ -1,4 +1,6 @@
 require 'gemnasium/dependency_parser'
+require 'gemnasium/vulnerable_version_check'
+
 class Gemnasium
   def evaluate(lockfile)
     dependencies = parse_dependencies(lockfile)
@@ -13,6 +15,10 @@ class Gemnasium
 
   def parse_dependencies(lockfile)
     dependency_parser.parse(lockfile)
+  end
+
+  def vulnerable_version_check
+    VulnerableVersionCheck.new
   end
 
   def dependency_parser
