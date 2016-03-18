@@ -1,3 +1,6 @@
+require 'logger'
+ENV['LOG_LEVEL'] = Logger::WARN.to_s
+
 def open_unsafe_one_vuln_file
   path = File.expand_path('../fixtures/gemfiles/one_vuln_lockfile', __FILE__)
   File.new(path)
