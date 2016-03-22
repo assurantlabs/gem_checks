@@ -28,10 +28,4 @@ RSpec.describe VulnerableVersionCheck do
       end
     end
   end
-
-  private
-
-  def vulnerable_gem
-    { gem_name: 'rest-client', version: '1.6.0' }
-  end
 end
