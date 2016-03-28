@@ -25,3 +25,11 @@ end
 def vulnerable_parsed_results
   safe_parsed_results << vulnerable_gem
 end
+
+def empty_collection_message
+  "You have no vulnerable gems in your project\n"
+end
+
+def format_gem_message(gem)
+  "#{gem[:gem_name]}, version: #{gem[:version]}\n"
+end

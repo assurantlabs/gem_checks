@@ -17,4 +17,4 @@ end.parse!
 
 file_path = ARGV.first
 lockfile = File.new(file_path)
-p GemnasiumValidator.new.evaluate(lockfile)
+GemChecks.new(lockfile: lockfile).display_vulnerable_gems
