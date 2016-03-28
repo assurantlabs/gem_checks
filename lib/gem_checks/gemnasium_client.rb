@@ -3,7 +3,7 @@ require 'open-uri'
 require 'nokogiri'
 
 class GemnasiumClient
-  def initialize(logger=Logger.new(STDOUT))
+  def initialize(logger: Logger.new(STDOUT))
     @logger = set_log_level(logger)
   end
 

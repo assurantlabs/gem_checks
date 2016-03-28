@@ -2,8 +2,8 @@ require 'gem_checks/dependency_parser'
 require 'gem_checks/vulnerable_version_check'
 
 class GemnasiumValidator
-  def initialize(dependency_parser=DependencyParser.new,
-                 vulnerable_version_check=VulnerableVersionCheck.new)
+  def initialize(dependency_parser: DependencyParser.new,
+                 vulnerable_version_check: VulnerableVersionCheck.new)
     @dependency_parser = dependency_parser
     @vulnerable_version_check = vulnerable_version_check
   end

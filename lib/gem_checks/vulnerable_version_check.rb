@@ -1,7 +1,7 @@
 require 'gem_checks/gemnasium_client'
 
 class VulnerableVersionCheck
-  def initialize(gemnasium_client=GemnasiumClient.new)
+  def initialize(gemnasium_client: GemnasiumClient.new)
     @gemnasium_client = gemnasium_client
   end
 
