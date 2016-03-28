@@ -2,29 +2,28 @@ require 'spec_helper'
 require 'gem_checks/vulnerable_version_check'
 
 RSpec.describe VulnerableVersionCheck do
+  class MockGemnasiumClient
+    def vulnerable?(gem)
+      gem == vulnerable_gem
+    end
+  end
+
   describe '#call' do
     context 'when there are no vulnerable gems' do
       let(:deps) { safe_parsed_results }
-      before do
-        allow_any_instance_of(GemnasiumClient).to receive(:vulnerable?)
-          .and_return(false)
-      end
 
-      it 'returns an empty list' do
-        expect(subject.call(deps)).to be_empty
+      it 'returns an empty collection' do
+        expect(VulnerableVersionCheck.new(gemnasium_client: MockGemnasiumClient.new)
+                                     .call(deps)).to be_empty
       end
     end
 
     context 'when there are vulnerable gems' do
       let(:deps) { vulnerable_parsed_results }
-      before do
-        allow_any_instance_of(GemnasiumClient).to receive(:vulnerable?) do |obj, arg|
-          arg == vulnerable_gem ? true : false
-        end
-      end
 
-      it 'returns a list of vulnerable gems' do
-        expect(subject.call(deps)).to eq([vulnerable_gem])
+      it 'returns a collection of vulnerable gems' do
+        expect(VulnerableVersionCheck.new(gemnasium_client: MockGemnasiumClient.new)
+                                     .call(deps)).to include(vulnerable_gem)
       end
     end
   end
