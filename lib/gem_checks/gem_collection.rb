@@ -24,7 +24,7 @@ class GemCollection < SimpleDelegator
   end
 
   class EmptyGemCollection
-    MESSAGE = 'You have no vulnerable gems in your project'
+    MESSAGE = "\nYou have no vulnerable gems in your project"
 
     def empty?
       true

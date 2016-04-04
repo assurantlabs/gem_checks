@@ -1,9 +1,10 @@
+require 'gem_checks/simple_logger'
 require 'logger'
-require 'open-uri'
 require 'nokogiri'
+require 'open-uri'
 
 class GemnasiumClient
-  def initialize(logger: Logger.new(STDOUT))
+  def initialize(logger: SimpleLogger.new)
     @logger = set_log_level(logger)
   end
 
@@ -11,6 +12,10 @@ class GemnasiumClient
     uri = client_url(gem_name, version)
     log_analysis(gem_name, version)
     query_gemnasium(uri)
+  end
+
+  def set_logger(logger)
+    @logger = set_log_level(logger)
   end
 
   private

@@ -27,7 +27,7 @@ def vulnerable_parsed_results
 end
 
 def empty_collection_message
-  "You have no vulnerable gems in your project\n"
+  "\nYou have no vulnerable gems in your project\n"
 end
 
 def format_gem_message(gem)
