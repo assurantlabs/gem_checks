@@ -6,6 +6,7 @@ require 'optparse'
 
 ARGV.push('-h') if ARGV.empty?
 
+options = {}
 OptionParser.new do |opts|
   opts.banner = 'Usage: gem_checks /path/to/Gemfile.lock [options]'
 
@@ -13,8 +14,24 @@ OptionParser.new do |opts|
     puts opts
     exit
   end
+  opts.on('-v', '--verbose', 'Prints verbose logging') do |v|
+    options[:verbose] = v
+  end
 end.parse!
 
+# Get file path from the ARGs list
 file_path = ARGV.first
 lockfile = File.new(file_path)
-GemChecks.new(lockfile: lockfile).display_vulnerable_gems
+
+# Setup the client logger
+client = GemnasiumClient.new
+if options[:verbose]
+  logger = Logger.new(STDOUT)
+  client.set_logger(logger)
+end
+vulnerable_version_check = VulnerableVersionCheck.new(gemnasium_client: client)
+
+# Evaluate the lockfile
+GemChecks.new(lockfile: lockfile,
+              vulnerable_version_check: vulnerable_version_check)
+         .display_vulnerable_gems
