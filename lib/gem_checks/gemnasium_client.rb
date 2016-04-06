@@ -37,11 +37,13 @@ class GemnasiumClient
 
   def query_gemnasium(uri)
     begin
-      doc = Nokogiri::HTML(open(uri))
+      open(uri) do |gemnasium_raw|
+        doc = Nokogiri::HTML(gemnasium_raw)
+        gem_vulnerable?(doc)
+      end
     rescue OpenURI::HTTPError
-      return false
+      false
     end
-    gem_vulnerable?(doc)
   end
 
   def client_url(gem_name, version)
