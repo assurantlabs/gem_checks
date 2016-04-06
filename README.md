@@ -6,7 +6,7 @@ please keep in mind that the use of Gemnasium's information is governed by their
 ## Installing gem_checks
 Via Rubygems:
 ```
-bundle install gem_checks
+gem install gem_checks
 ```
 
 ## Usage
