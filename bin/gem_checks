@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.expand_path('../../lib', __FILE__)
+require 'gem_checks'
+require 'optparse'
+
+ARGV.push('-h') if ARGV.empty?
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: gem_checks /path/to/Gemfile.lock [options]'
+
+  opts.on('-h', '--help', 'Prints this help') do
+    puts opts
+    exit
+  end
+  opts.on('-v', '--verbose', 'Prints verbose logging') do |v|
+    options[:verbose] = v
+  end
+end.parse!
+
+# Get file path from the ARGs list
+file_path = ARGV.first
+lockfile = File.new(file_path)
+
+# Setup the client logger
+client = GemnasiumClient.new
+if options[:verbose]
+  logger = Logger.new(STDOUT)
+  client.set_logger(logger)
+end
+vulnerable_version_check = VulnerableVersionCheck.new(gemnasium_client: client)
+
+# Evaluate the lockfile
+GemChecks.new(lockfile: lockfile,
+              vulnerable_version_check: vulnerable_version_check)
+         .display_vulnerable_gems
