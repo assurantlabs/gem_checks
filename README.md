@@ -1,4 +1,7 @@
 # Gem Checks
+[![Code Climate](https://codeclimate.com/github/mobiledefense/gem_checks/badges/gpa.svg)](https://codeclimate.com/github/mobiledefense/gem_checks)
+[![Build Status](https://travis-ci.org/mobiledefense/gem_checks.svg?branch=master)](https://travis-ci.org/mobiledefense/gem_checks)
+
 Is a small tool to help ensure that your project does not contain any vulnerable dependencies.
 We do this by scraping information from [gemnasium](https://gemnasium.com),
 please keep in mind that the use of Gemnasium's information is governed by their [terms and conditions](https://gemnasium.com/terms).
