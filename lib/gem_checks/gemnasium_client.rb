@@ -14,7 +14,7 @@ class GemnasiumClient
     query_gemnasium(uri)
   end
 
-  def set_logger(logger)
+  def logger=(logger)
     @logger = set_log_level(logger)
   end
 
@@ -26,8 +26,8 @@ class GemnasiumClient
 
   def set_log_level(logger)
     level = ENV.fetch('LOG_LEVEL') { Logger::INFO }.to_i
-    logger.tap do |logger|
-      logger.level = level
+    logger.tap do |l|
+      l.level = level
     end
   end
 
@@ -36,14 +36,12 @@ class GemnasiumClient
   end
 
   def query_gemnasium(uri)
-    begin
-      open(uri) do |gemnasium_raw|
-        doc = Nokogiri::HTML(gemnasium_raw)
-        gem_vulnerable?(doc)
-      end
-    rescue OpenURI::HTTPError
-      false
+    open(uri) do |gemnasium_raw|
+      doc = Nokogiri::HTML(gemnasium_raw)
+      gem_vulnerable?(doc)
     end
+  rescue OpenURI::HTTPError
+    false
   end
 
   def client_url(gem_name, version)

@@ -24,7 +24,7 @@ class GemCollection < SimpleDelegator
   end
 
   class EmptyGemCollection
-    MESSAGE = "\nYou have no vulnerable gems in your project"
+    MESSAGE = "\nYou have no vulnerable gems in your project".freeze
 
     def empty?
       true
