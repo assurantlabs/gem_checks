@@ -1,5 +1,6 @@
 # Gem Checks
 [![Code Climate](https://codeclimate.com/github/mobiledefense/gem_checks/badges/gpa.svg)](https://codeclimate.com/github/mobiledefense/gem_checks)
+[![Test Coverage](https://codeclimate.com/github/mobiledefense/gem_checks/badges/coverage.svg)](https://codeclimate.com/github/mobiledefense/gem_checks/coverage)
 [![Build Status](https://travis-ci.org/mobiledefense/gem_checks.svg?branch=master)](https://travis-ci.org/mobiledefense/gem_checks)
 
 Is a small tool to help ensure that your project does not contain any vulnerable dependencies.
