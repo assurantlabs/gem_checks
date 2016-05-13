@@ -29,5 +29,4 @@ class GemChecks
   def list_vulnerable(deps)
     @vulnerable_version_check.call(deps)
   end
-
 end

@@ -1,5 +1,7 @@
 class SimpleLogger
-  LOG_LEVELS = [:debug, :info, :warn, :error, :fatal, :unknown]
+  attr_writer :level
+
+  LOG_LEVELS = [:debug, :info, :warn, :error, :fatal, :unknown].freeze
 
   def initialize(default_level: :debug)
     @level = LOG_LEVELS.index(default_level)
@@ -29,16 +31,11 @@ class SimpleLogger
     log_level_if_valid(:unknown)
   end
 
-  def level=(level)
-    @level = level
-  end
-
   private
 
   def log_if_level_valid(level_sym)
-    if @level <= LOG_LEVELS.index(level_sym)
-      log
-    end
+    return unless @level <= LOG_LEVELS.index(level_sym)
+    log
   end
 
   def log(*)

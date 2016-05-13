@@ -1,4 +1,4 @@
-$:.unshift File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 require 'gem_checks/version'
 
 Gem::Specification.new do |gem|
@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'rspec', '~> 3.4', '>= 3.4.0'
   gem.add_development_dependency 'rake', '~> 11.1', '>= 11.1.0'
+  gem.add_development_dependency 'codeclimate-test-reporter'
   gem.add_runtime_dependency 'nokogiri', '~> 1.6.7', '>= 1.6.7.2'
 
   gem.executables = ['gem_checks']
