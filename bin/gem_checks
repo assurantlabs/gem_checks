@@ -32,6 +32,8 @@ end
 vulnerable_version_check = VulnerableVersionCheck.new(gemnasium_client: client)
 
 # Evaluate the lockfile
-GemChecks.new(lockfile: lockfile,
-              vulnerable_version_check: vulnerable_version_check)
-         .display_vulnerable_gems
+vulnerable_gems = GemChecks.new(lockfile: lockfile,
+                                vulnerable_version_check: vulnerable_version_check)
+                           .display_vulnerable_gems
+
+exit 1 unless vulnerable_gems.empty?

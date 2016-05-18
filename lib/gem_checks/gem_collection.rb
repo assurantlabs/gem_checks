@@ -9,6 +9,7 @@ class GemCollection < SimpleDelegator
     collection.each do |gem|
       puts format_gem_message(gem)
     end
+    self
   end
 
   def self.wrap(collection)
@@ -32,6 +33,7 @@ class GemCollection < SimpleDelegator
 
     def display_vulnerable
       puts MESSAGE
+      self
     end
   end
 end
