@@ -42,6 +42,8 @@ class GemnasiumClient
     end
   rescue OpenURI::HTTPError
     false
+  rescue Errno::ECONNRESET
+    query_gemnasium(uri)
   end
 
   def client_url(gem_name, version)
