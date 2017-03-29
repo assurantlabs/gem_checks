@@ -1,8 +1,8 @@
 require 'logger'
-require "codeclimate-test-reporter"
+require 'simplecov'
 ENV['LOG_LEVEL'] = Logger::WARN.to_s
 
-CodeClimate::TestReporter.start
+SimpleCov.start
 
 def open_unsafe_one_vuln_file
   path = File.expand_path('../fixtures/gemfiles/one_vuln_lockfile', __FILE__)
