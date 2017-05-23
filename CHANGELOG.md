@@ -19,7 +19,7 @@ All notable changes to this project will be documented in this file.
 - Nothing.
 
 ### Security
-- Nothing.
+- Update nokogiri.
 
 ## 1.0.1 - 2016-05-19
 
