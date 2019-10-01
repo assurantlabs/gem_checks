@@ -1,9 +1,3 @@
-# This repo has been moved to gitlab
-
-https://gitlab.management-eks.us-east-1.assurantlabs.com/general/gem_checks
-
-`git remote set-url origin git@gitlab-ssh.management-eks.us-east-1.assurantlabs.com:general/gem_checks.git`
-
 # Gem Checks
 [![Code Climate](https://codeclimate.com/github/mobiledefense/gem_checks/badges/gpa.svg)](https://codeclimate.com/github/mobiledefense/gem_checks)
 [![Test Coverage](https://codeclimate.com/github/mobiledefense/gem_checks/badges/coverage.svg)](https://codeclimate.com/github/mobiledefense/gem_checks/coverage)
